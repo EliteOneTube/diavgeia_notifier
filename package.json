@@ -4,6 +4,8 @@
   "description": "Get notifications if new documents appear with your query inputs",
   "main": "index.js",
   "scripts": {
+    "start": "tsc -p . && pm2 start dist/app.js --name diavgeia_notifier",
+    "restart": "tsc -p . && pm2 restart dist/app.js --name diavgeia_notifier",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +17,18 @@
   "bugs": {
     "url": "https://github.com/EliteOneTube/diavgeia_notifier/issues"
   },
-  "homepage": "https://github.com/EliteOneTube/diavgeia_notifier#readme"
+  "homepage": "https://github.com/EliteOneTube/diavgeia_notifier#readme",
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "axios": "^1.6.2",
+    "dotenv": "^16.3.1",
+    "fs": "^0.0.1-security",
+    "jsonschema": "^1.4.1",
+    "nodemailer": "^6.9.7",
+    "path": "^0.12.7",
+    "winston": "^3.11.0"
+  }
 }
