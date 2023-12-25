@@ -27,7 +27,6 @@
     "dotenv": "^16.3.1",
     "fs": "^0.0.1-security",
     "jsonschema": "^1.4.1",
-    "nodemailer": "^6.9.7",
     "path": "^0.12.7",
     "winston": "^3.11.0"
   }

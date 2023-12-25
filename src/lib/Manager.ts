@@ -71,6 +71,8 @@ export default class Manager {
         if (this.totalResults < totalResults) {
             const message = `Found ${totalResults - this.totalResults} new results with the keyword ${this.options.advancedSearch.query}`;
 
+            logger.info('📩' + message)
+
             if (this.notifications) {
                 this.notifications.sendDiscord(message);
             }

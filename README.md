@@ -7,7 +7,6 @@ Diavgeia_Notifier is a Node.js application that will notify you when a new decis
 ## Options Schema
 ```
 {
-    {
     "advancedSearch": {
         "organizationLatinName": "",
         "organizationId": "",
@@ -24,10 +23,9 @@ By default the schema will look like this. You can change the values to your lik
 
 ```
 {
-    {
     "advancedSearch": {
         "organizationLatinName": "HUA",
-        "query": ""
+        "query": "ΑΠΟΦΑΣΗ"
     },
     "discord": {
         "webhookId": ""
