@@ -22,9 +22,6 @@ yarn-error.log*
 *.js
 *.js.map
 
-# Ignore TypeScript declaration files
-*.d.ts
-
 # Ignore package lock files
 package-lock.json
 yarn.lock
