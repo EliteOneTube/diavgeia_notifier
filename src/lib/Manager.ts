@@ -43,18 +43,23 @@ export default class Manager {
 
         const organizationId = this.options.advancedSearch.organizationId;
 
-        //if any of the options is not empty then use advanced search
-        if (!organizationLatinName && !organizationId) {
-            return;
+        const query = this.options.advancedSearch.query;
+
+        let params= 'q=';
+
+        if (organizationLatinName) {
+            params += `organizationLatinName:${organizationLatinName}`;
         }
 
-        const optionToUse = organizationId ? organizationId : organizationLatinName;
+        if (organizationId) {
+            params += ` AND organizationId:${organizationId}`;
+        }
+        
+        if (query) {
+            params += ` AND q:["${query}"]`;
+        }
 
-        let searchQuery = organizationId ? `organizationId:${optionToUse}` : `organizationLatinName:"${optionToUse}"`;
-
-        searchQuery += `AND q:["${this.options.advancedSearch.query}"]`;
-
-        let url = this.config.getApiUrlWithParams('search/advanced', `q=${searchQuery}`);
+        let url = this.config.getApiUrlWithParams('search/advanced', params);
 
         url = encodeURI(url);
 
