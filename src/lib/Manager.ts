@@ -24,8 +24,8 @@ export default class Manager {
 
         this.options = loadOptions();
 
-        if (this.options.discord.webhookId != '') {
-            this.notifications = new Notifications(this.options.discord.webhookId as string);
+        if (this.options.discord.webHookUrl != '') {
+            this.notifications = new Notifications(this.options.discord.webHookUrl as string);
         }
 
         //load the total results from the file output.json

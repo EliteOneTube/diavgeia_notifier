@@ -6,10 +6,11 @@ import logger from './Logger';
 const defaultOptions: JsonOptions = {
     advancedSearch: {
         organizationLatinName: 'HUA',
-        query: 'ΑΠΟΦΑΣΗ',
+        organizationId: '',
+        query: '',
     },
     discord: {
-        webhookId: ''
+        webHookUrl: ''
     }
 }
 
@@ -19,7 +20,7 @@ export default interface JsonOptions {
 }
 
 interface Discord {
-    webhookId?: string;
+    webHookUrl?: string;
 }
 
 interface AdvancedSearch {
