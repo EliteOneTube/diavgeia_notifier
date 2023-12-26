@@ -24,7 +24,7 @@ export default class Manager {
 
         this.options = loadOptions();
 
-        if (this.options.discord.webHookUrl != '') {
+        if (this.options.discord.webHookUrl) {
             this.notifications = new Notifications(this.options.discord.webHookUrl as string);
         }
 
@@ -48,15 +48,15 @@ export default class Manager {
         let params= 'q=';
 
         if (organizationLatinName) {
-            params += `organizationLatinName:${organizationLatinName}`;
+            params += `organizationLatinName:"${organizationLatinName}"`;
         }
 
         if (organizationId) {
-            params += ` AND organizationId:${organizationId}`;
+            params += `AND organizationId:${organizationId}`;
         }
         
         if (query) {
-            params += ` AND q:["${query}"]`;
+            params += `AND q:["${query}"]`;
         }
 
         //if all the params are empty then return
@@ -81,9 +81,13 @@ export default class Manager {
         logger.info(`✅ Manager finished searching with ${totalResults} results`);
 
         if (this.totalResults < totalResults) {
-            const message = `Found ${totalResults - this.totalResults} new results with the keyword ${this.options.advancedSearch.query}`;
+            let message = `Found ${totalResults - this.totalResults} new results with the keyword ${this.options.advancedSearch.query}`;
 
-            logger.info('📩' + message)
+            if (this.options.advancedSearch.organizationLatinName) {
+                message += ` at the organization ${this.options.advancedSearch.organizationLatinName}`;
+            }
+
+            logger.info('📩 ' + message)
 
             if (this.notifications) {
                 this.notifications.sendDiscord(message);
