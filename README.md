@@ -19,7 +19,7 @@ Diavgeia_Notifier is a Node.js application that will notify you when a new decis
 ```
 
 ## Usage
-By default the schema will look like this. You can change the values to your liking. You can create the file yourself or it will create it when it starts with the following values. Will create the file in the same directory as the application.
+By default the schema will look like this. You can change the values to your liking. You can create the file yourself or it will create it when it starts with the following values (Keep in mind that you will need to edit it to get it started). Will create the file in the same directory as the application.
 
 ```
 {

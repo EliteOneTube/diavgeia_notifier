@@ -59,6 +59,13 @@ export default class Manager {
             params += ` AND q:["${query}"]`;
         }
 
+        //if all the params are empty then return
+        if (params === 'q=') {
+            logger.info('❌ Manager failed to start searching because all the params are empty');
+
+            return;
+        }
+
         let url = this.config.getApiUrlWithParams('search/advanced', params);
 
         url = encodeURI(url);
