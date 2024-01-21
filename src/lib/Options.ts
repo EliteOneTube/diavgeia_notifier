@@ -46,11 +46,18 @@ export function loadOptions(): JsonOptions {
             }
 
             return options;
-        } catch (err) {
-            throw new Error('Invalid options');
+        } catch (err: any) {
+            logger.error(err.message);
+
+            //Invalid options, create a new file with the default options
+            logger.info ('Re-creating it with default options.')
+
+            fs.writeFileSync(fileLocation, JSON.stringify(defaultOptions, null, 4));
+
+            return defaultOptions;
         }
     } catch (err) {
-        logger.info ('Options file not found, creating it')
+        logger.info ('🔄 Options file not found, creating it')
 
         fs.writeFileSync(fileLocation, JSON.stringify(defaultOptions, null, 4));
 
