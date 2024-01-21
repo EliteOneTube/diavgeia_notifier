@@ -25,7 +25,7 @@ export default class Manager {
         this.options = loadOptions();
 
         if (this.options.discord.webHookUrl) {
-            this.notifications = new Notifications(this.options.discord.webHookUrl as string);
+            this.notifications = new Notifications(this.options.discord.webHookUrl);
         }
 
         //load the total results from the file output.json
@@ -52,7 +52,10 @@ export default class Manager {
         }
 
         if (organizationId) {
-            params.push(`organizationId:${organizationId}`);
+            //check if the organizationId is a number
+            if (!isNaN(parseInt(organizationId))) {
+                params.push(`organizationId:${organizationId}`);
+            }
         }
 
         if (query) {
