@@ -45,28 +45,34 @@ export default class Manager {
 
         const query = this.options.advancedSearch.query;
 
-        let params= 'q=';
+        let params = []
 
         if (organizationLatinName) {
-            params += `organizationLatinName:"${organizationLatinName}"`;
+            params.push(`organizationLatinName:"${organizationLatinName}"`);
         }
 
         if (organizationId) {
-            params += `AND organizationId:${organizationId}`;
-        }
-        
-        if (query) {
-            params += `AND q:["${query}"]`;
+            params.push(`organizationId:${organizationId}`);
         }
 
+        if (query) {
+            params.push(`q:["${query}"]`);
+        }
+
+        params = params.map(param => `${param}`);
+
+        let string = params.join(' AND ');
+
+        string = `q=(${string})`;
+
         //if all the params are empty then return
-        if (params === 'q=') {
+        if (!params.length) {
             logger.info('❌ Manager failed to start searching because all the params are empty');
 
             return;
         }
 
-        let url = this.config.getApiUrlWithParams('search/advanced', params);
+        let url = this.config.getApiUrlWithParams('search/advanced', string);
 
         url = encodeURI(url);
 

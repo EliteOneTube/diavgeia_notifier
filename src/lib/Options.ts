@@ -30,7 +30,7 @@ interface AdvancedSearch {
 }
 
 export function loadOptions(): JsonOptions {
-    const fileLocation = path.join(__dirname, getOptionsPath());
+    const fileLocation = path.resolve(__dirname, getOptionsPath());
 
     //try to read the file and if it doesnt exist create it using the default options
     try {
