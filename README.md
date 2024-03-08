@@ -19,7 +19,7 @@ Diavgeia_Notifier is a Node.js application that will notify you when a new decis
 ```
 
 ## Usage
-By default the schema will look like this. You can change the values to your liking. You can create the file yourself or it will create it when it starts with the following values (Keep in mind that you will need to edit it to get it started). Will create the file in the same directory as the application.
+By default the schema will look like this. You should change the values to your liking and rename the file from `options.json.template` to `options.json`(Keep in mind that you will need to edit it to get it started).
 
 ```
 {
@@ -36,9 +36,19 @@ By default the schema will look like this. You can change the values to your lik
 
 ## Installation
 
-1. Clone the repository.
-2. Install the dependencies by running the following command: `npm install`
-3. Please install [PM2](https://pm2.keymetrics.io/) globally as it is used to run the application in the background.
-4. Run the application with the following command: `npm run start`
-5. Live logs can be seen with the following command: `pm2 logs diavgeia_notifier`
-6. If you want to stop the application run the following command: `pm2 kill`
+1. Clone the repository.~
+
+## Execution
+
+### PM2
+1. Install the dependencies by running the following command: `npm install`
+2. Please install [PM2](https://pm2.keymetrics.io/) globally as it is used to run the application in the background.
+3. Run the application with the following command: `npm run start`
+4. Live logs can be seen with the following command: `pm2 logs diavgeia_notifier`
+5. If you want to stop the application run the following command: `pm2 kill`
+
+### Docker
+1. Run the follow command: `docker build -t diavgeia_notifier . && docker run diavgeia_notifier -d`
+2. To get the container's id or name run: `docker ps`
+3. Live logs can be seen with the following command using the container's id or name: `docker logs -f id/name`
+4. If you want to stop the container run the following command using the container's id or name: `docker stop id/name`

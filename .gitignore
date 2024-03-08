@@ -23,7 +23,6 @@ yarn-error.log*
 *.js.map
 
 # Ignore package lock files
-package-lock.json
 yarn.lock
 
 # Ignore .json custome files

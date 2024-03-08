@@ -1,10 +1,11 @@
 {
   "name": "diavgeia_notifier",
-  "version": "2.0.1",
+  "version": "2.1.1",
   "description": "Get notifications if new documents appear with your query inputs",
-  "main": "index.js",
+  "main": "dist/app.js",
   "scripts": {
     "start": "tsc -p . && pm2 start dist/app.js --name diavgeia_notifier",
+    "build": "tsc -p .",
     "restart": "tsc -p . && pm2 restart dist/app.js --name diavgeia_notifier",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

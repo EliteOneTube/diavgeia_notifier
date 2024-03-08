@@ -1,0 +1,10 @@
+{
+    "advancedSearch": {
+        "organizationLatinName": "",
+        "organizationId": "",
+        "query": ""
+    },
+    "discord": {
+        "webhookId": ""
+    }
+}
