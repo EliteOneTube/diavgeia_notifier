@@ -20,7 +20,7 @@ export const optionsSchema: jsonschema.Schema = {
         discord: {
             type: 'object',
             properties: {
-                webhookId: {
+                webHookUrl: {
                     type: 'string'
                 }
             }

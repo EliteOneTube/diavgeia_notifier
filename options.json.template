@@ -5,6 +5,6 @@
         "query": ""
     },
     "discord": {
-        "webhookId": ""
+        "webHookUrl": ""
     }
 }

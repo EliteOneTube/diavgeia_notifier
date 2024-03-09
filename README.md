@@ -13,7 +13,7 @@ Diavgeia_Notifier is a Node.js application that will notify you when a new decis
         "query": ""
     },
     "discord": {
-        "webhookId": ""
+        "webHookUrl": ""
     }
 }
 ```
@@ -29,7 +29,7 @@ By default the schema will look like this. You should change the values to your 
         "query": ""
     },
     "discord": {
-        "webhookId": ""
+        "webHookUrl": ""
     }
 }
 ```
@@ -47,8 +47,8 @@ By default the schema will look like this. You should change the values to your 
 4. Live logs can be seen with the following command: `pm2 logs diavgeia_notifier`
 5. If you want to stop the application run the following command: `pm2 kill`
 
-### Docker
-1. Run the follow command: `docker build -t diavgeia_notifier . && docker run diavgeia_notifier -d`
+### Docker 
+1. Run the follow command: `docker build -t diavgeia_notifier . && docker run -d diavgeia_notifier`
 2. To get the container's id or name run: `docker ps`
 3. Live logs can be seen with the following command using the container's id or name: `docker logs -f id/name`
 4. If you want to stop the container run the following command using the container's id or name: `docker stop id/name`

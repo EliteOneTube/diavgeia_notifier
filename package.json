@@ -1,6 +1,6 @@
 {
   "name": "diavgeia_notifier",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Get notifications if new documents appear with your query inputs",
   "main": "dist/app.js",
   "scripts": {
